@@ -7,7 +7,7 @@
   if(!(isset($_SESSION['username'])))
     header("location:index.php");
 
-	$id = $_POST['id'];
+	$id = $_GET['id'];
 
 ?>
 
@@ -39,6 +39,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
+
+        $("#judgeform")[0].reset();
 		    	jQuery.fn.visible = function() {
 		    return this.css('visibility', 'visible');
 		};
@@ -58,24 +60,31 @@
 
 		inch.click(function(){
 			if(inch.is(":checked")){
-				$("#inblock").visibilityToggle();
+				$("#inblock").toggle();
+        $("#insub").toggle();
 			}
 			else{
-				$("#inblock").visibilityToggle();
+				$("#inblock").toggle();
+        $("#insub").toggle();
+        $("#input").defaultValue;
 			}
-			appendString("Input");
 
 		});
 
 		drivech.click(function(){
 			if(drivech.is(":checked")){
-				$("#driveblock").visibilityToggle();
+				$("#driveblock").toggle();
+        $("#drivesub").toggle();
 			}
 			else{
-				$("#driveblock").visibilityToggle();
-			}
-			appendString("Driver");
+				$("#driveblock").toggle();
+        $("#drivesub").toggle();
+			  $("#driver").defaultValue;
+      }
 		});
+
+
+
 
 	});
     </script>
@@ -100,7 +109,7 @@
           <ul class="nav navbar-nav">
             <li ><a href="panel.php">Posted problems</a></li>
             <li><a href="pendingproblem.php">Pending</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
            
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -122,7 +131,7 @@
       	
       	<h2>Add Judge File</h2><br><br>
       	<div class="form-group">
-      		<form action= "showsolution.php" enctype="multipart/form-data" method="post" role="form">
+      		<form action= "showsolution.php" enctype="multipart/form-data" method="post" role="form" id="judgeform">
 		    <label for="outch" class="col-sm-2 control-label">Output</label>
       		<input type="checkbox" name="outch"  id="outch" onclick="return false" checked>	<br><br>
       	
@@ -138,19 +147,23 @@
       			<label for="output" class="col-sm-2 control-label">Output File</label>
 				<input type="file" name="output"  id="output" required><br>
 			</div>
-      		<div id="inblock" style="visibility:hidden">
+      		<div id="inblock" style="display:none">
       			<label for="input" class="col-sm-2 control-label">Input File</label>
       			<input type="file" name="input"  id="input" ><br>
       		</div>
-      		<div id="driveblock" style="visibility:hidden">
+      		<div id="driveblock" style="display:none">
    				<label for="driver" class="col-sm-2 control-label">Driver File</label>
       			<input type="file" name="driver"  id="driver"><br>
    			</div>		
    		</div>
 
 
-			<h6 style="color:red">*Every batch of judge files should have an output file</h6>
-      		<button type="submit" class="btn btn-primary btn-lg">Add Output </button>
+            <label for="score" class="col-sm-2 control-label">Score</label>
+          <input type="number" name="score" min="0" max="100" required><br><br>
+          <input type="hidden" value="<?php echo $id;?>" name="solution_prob">
+          <h6 style="color:red">*Every batch of judge files should have an output file</h6><br>
+
+      		<input type="submit" name="submit" class="btn btn-primary btn-lg" id="submit" value="Add ">
       	</form>
       </div>
   </div>

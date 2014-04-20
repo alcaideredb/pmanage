@@ -76,7 +76,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="panel.php">Posted problems</a></li>
             <li><a href="pendingproblem.php">Pending</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
            
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -99,9 +99,9 @@
         <h1>Problems</h1>
         <table class="table table-striped table-bordered table-hover">
         <thead>
-        <th>Internal ID</th>
         <th>Code</th>
         <th>Title</th>
+        <th>Programming Language</th>
         </thead>
         <tbody>
           <?php
@@ -112,9 +112,9 @@
             while($row=pg_fetch_row($resultQuery))
             {
               echo "<tr>";
-              echo "<td style=\"width:3em\">$row[0]</td>";
-              echo "<td style=\"width:5em\"> <a href=\"viewproblem.php?id=$row[0]\">$row[1]</a></td>";
+              echo "<td style=\"width:5em\"> $row[1]</td>";
               echo "<td style=\"width:20em\">$row[2]</td>";
+              echo "<td style=\"width:20em\">$row[5]</td>";
               echo "<td style=\"width:30em\"><a href=\"viewproblem.php?id=$row[0]\"><button class=\"btn btn-info\">Show problem</button></a>
               <a href=\"deleteprobsuccess.php?id=$row[0]\"><button class=\"btn btn-danger\">Delete Problem</button></a></td>";
             

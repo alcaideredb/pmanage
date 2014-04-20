@@ -52,7 +52,7 @@
           <ul class="nav navbar-nav">
             <li ><a href="panel.php">Posted problems</a></li>
             <li><a href="pendingproblem.php">Pending</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
            
           </ul>
           <ul class="nav navbar-nav navbar-right">

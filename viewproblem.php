@@ -61,7 +61,7 @@
           <ul class="nav navbar-nav">
             <li><a href="panel.php">Posted problems</a></li>
             <li><a href="pendingproblem.php">Pending</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
            
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -157,7 +157,7 @@
 
             </tbody>
         </table>
-        <a href="addsolution.php?id=<?php echo $id?>"><button  class="btn btn-default btn-primary btn-lg">Add Solution</button></a>
+        <a href="addsolution.php?id=<?php echo $id?>"><button  class="btn btn-default btn-primary btn-lg">Add Judge file</button></a>
 				<a href="panel.php"><button  class="btn btn-default btn-warning btn-lg">Back</button></a>
 			 
 			</div>
